@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="EmailAssets\VerifyCode.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="EmailAssets\VerifyCode.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NaiveDev.Domain\NaiveDev.Domain.csproj" />
+    <ProjectReference Include="..\NaiveDev.Shared\NaiveDev.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

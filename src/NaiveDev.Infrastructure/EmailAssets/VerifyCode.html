@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			box-sizing: border-box;
+			font-size: 14px;
+		}
+
+		.main-wrap {
+			height: auto;
+			display: flex;
+			justify-content: center;
+			padding: 15px 15px 10px 15px;
+			background-color: #fbf7ee;
+			z-index: 1;
+			zoom: 1;
+		}
+
+		.main-wrap-inner {
+			align-self: center;
+			background-color: #fff;
+			direction: ltr;
+			border-radius: 16px;
+			border: 1px solid #D6D2BF;
+		}
+
+		.main-wrap-inner table {
+			padding: 15px 20px;
+		}
+
+		.main-wrap-inner strong {
+			color: #fc5c65;
+		}
+
+		.main-wrap-td {
+			padding: 0 0 10px;
+		}
+
+		.main-wrap-td table {
+			margin: 20px 20px 5px 20px;
+		}
+
+		.main-wrap-tr {
+			line-height: 30px;
+		}
+
+		.main-wrap-tr strong {
+			font-size: 24px;
+		}
+
+		.main-wrap-h2 {
+			font-size: 24px;
+			color: #000;
+			line-height: 1.2em;
+			font-weight: 400;
+			text-align: center;
+			margin: 25px 0 0;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="main-wrap">
+		<div class="main-wrap-inner">
+			<table>
+				<tbody>
+					<tr>
+						<td class="main-wrap-td">
+							<h2 class="main-wrap-h2">{0}</h2>
+						</td>
+					</tr>
+					<tr>
+						<td class="main-wrap-td">
+							<table>
+								<tbody>
+									<tr class="main-wrap-tr">
+										<td>尊敬的用户：</td>
+									</tr>
+									<tr class="main-wrap-tr">
+										<td>您的邮箱验证码是&ensp;<strong>{1}</strong></td>
+									</tr>
+									<tr class="main-wrap-tr">
+										<td>此验证码在&ensp;{2}&ensp;分钟内有效。请在网页中填写，完成验证。</td>
+									</tr>
+								</tbody>
+							</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
