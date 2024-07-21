@@ -198,8 +198,8 @@ namespace NaiveDev.Application.CommandHandlers
             string accessTokenKey = CacheKeyUtils.TokenFormat(JwtType.AccessToken, UserAgent.Device.Brand, user.Account!);
             string refreshTokenKey = CacheKeyUtils.TokenFormat(JwtType.RefreshToken, UserAgent.Device.Brand, user.Account!);
 
-            string accessToken = await JwtTokenProvider.BuildTokenAsync(JwtType.AccessToken, UserAgent.Device.Brand, accessTokenKey, newCsrf, DateTime.Now.AddHours(2));
-            string refreshToken = await JwtTokenProvider.BuildTokenAsync(JwtType.RefreshToken, UserAgent.Device.Brand, refreshTokenKey, newCsrf, DateTime.Now.AddDays(7));
+            string accessToken = await JwtTokenProvider.BuildTokenAsync(JwtType.AccessToken, UserAgent.Device.Brand, user.Account!, newCsrf, DateTime.Now.AddHours(2));
+            string refreshToken = await JwtTokenProvider.BuildTokenAsync(JwtType.RefreshToken, UserAgent.Device.Brand, user.Account!, newCsrf, DateTime.Now.AddDays(7));
 
             await _cache.SetCacheAsync(activeKey, newCsrf, TimeSpan.FromDays(2), cancellationToken);
             await _cache.SetCacheAsync(accessTokenKey, user, TimeSpan.FromHours(2), cancellationToken);
