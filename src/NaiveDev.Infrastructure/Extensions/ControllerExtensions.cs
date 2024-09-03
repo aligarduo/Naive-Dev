@@ -1,6 +1,8 @@
-﻿using System.Text.Json;
+﻿using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
+using System.Text.Unicode;
 using Microsoft.Extensions.DependencyInjection;
 using NaiveDev.Infrastructure.JsonConverts;
 
@@ -21,12 +23,16 @@ namespace NaiveDev.Infrastructure.Extensions
             services.AddControllers()
                 .AddJsonOptions(options =>
                 {
+                    // 此设定解决JsonResult中文被编码的问题
+                    options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
                     // 设置JSON序列化时属性名称不区分大小写
                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
                     // 设置当值为null时忽略属性
                     options.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                    // 设置数据脱敏JSON转换器
+                    // 设置数据脱敏的JSON转换器
                     options.JsonSerializerOptions.Converters.Add(new DataMaskJsonConvert());
+                    // 设置时间类型的JSON转换器
+                    options.JsonSerializerOptions.Converters.Add(new DateTimeJsonConverter());
                     // 设置JSON序列化时的属性命名策略为SnakeCase（下划线分隔）
                     options.JsonSerializerOptions.PropertyNamingPolicy = new SnakeCaseNamingPolicy();
                 });
